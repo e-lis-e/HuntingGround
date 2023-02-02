@@ -1,0 +1,9 @@
+long currentTime = System.nanoTime();  used to count current time in screen. 1.000.000.000 nanoseconds = 1 second
+System.out.println("Current Time: " + currentTime);
+long currentTime2 = System.currentTimeMillis() is usable too but less precise
+
+the entity class stores variables that will be used in player, monster and NPC classes
+
+things need to be public when you want to access from other packages.
+
+bufferedimage describes an image with an accessible buffer of image data
