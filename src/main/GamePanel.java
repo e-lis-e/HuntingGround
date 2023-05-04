@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import entity.Player;
+import object.TheObject;
 import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable{
@@ -36,7 +37,10 @@ public class GamePanel extends JPanel implements Runnable{
 	KeyHandler kH = new KeyHandler();
 	Thread gameThread;
 	public CollisionChecker cChecker = new CollisionChecker(this);
+	public ObjSetter oSetter = new ObjSetter(this);
 	public Player player = new Player(this,kH);
+	//the 10 here means 10 slots, that can be made bigger if needed
+	public TheObject obj[] = new TheObject[10];
 	
 	
 	public GamePanel() {
