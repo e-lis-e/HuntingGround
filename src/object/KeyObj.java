@@ -15,6 +15,7 @@ public class KeyObj extends TheObject{
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	
