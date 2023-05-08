@@ -1,5 +1,6 @@
 package main;
 
+import object.BootsObj;
 import object.ChestObj;
 import object.DoorObj;
 import object.KeyObj;
@@ -41,6 +42,10 @@ public class ObjSetter {
 		gp.obj[6].worldx = 10 * gp.tileSize;
 		gp.obj[6].worldy = 8 * gp.tileSize;
 		
+		
+		gp.obj[7] = new BootsObj();
+		gp.obj[7].worldx = 37 * gp.tileSize;
+		gp.obj[7].worldy = 42 * gp.tileSize;
 		
 		
 		

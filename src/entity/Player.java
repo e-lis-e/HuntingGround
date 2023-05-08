@@ -119,16 +119,23 @@ public class Player extends Entity{
 			
 			switch(objectName) {
 			case "Key":
+				gp.playEffect(1);
 				hasKey++;
 				gp.obj[i] = null; //this nullification makes the object disappear
 				System.out.println("Keys: " + hasKey);
 				break;
 			case "Door":
+				gp.playEffect(3);
 				if(hasKey > 0) {
 					gp.obj[i] = null;
 					hasKey--;
 				}
 				System.out.println("Keys: " + hasKey);
+				break;
+			case "Boots":
+				gp.playEffect(2);
+				speed += 2;
+				gp.obj[i] = null;
 				break;
 			}
 		}
