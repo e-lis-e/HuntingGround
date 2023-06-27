@@ -17,7 +17,7 @@ public class Player extends Entity{
 	
 	public final int screenX;
 	public final int screenY;
-	int hasKey = 0;
+	public int hasKey = 0;
 	
 	public Player(GamePanel gp, KeyHandler kH) {
 		this.gp = gp;
@@ -122,7 +122,7 @@ public class Player extends Entity{
 				gp.playEffect(1);
 				hasKey++;
 				gp.obj[i] = null; //this nullification makes the object disappear
-				System.out.println("Keys: " + hasKey);
+				gp.ui.showMessage("You got a key!");
 				break;
 			case "Door":
 				gp.playEffect(3);
@@ -130,7 +130,7 @@ public class Player extends Entity{
 					gp.obj[i] = null;
 					hasKey--;
 				}
-				System.out.println("Keys: " + hasKey);
+				
 				break;
 			case "Boots":
 				gp.playEffect(2);
