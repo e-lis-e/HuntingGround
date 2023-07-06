@@ -129,6 +129,9 @@ public class Player extends Entity{
 				if(hasKey > 0) {
 					gp.obj[i] = null;
 					hasKey--;
+					gp.ui.showMessage("You opened one of the Sacred Doors!");
+				} else {
+					gp.ui.showMessage("You need a key, silly!");
 				}
 				
 				break;
@@ -137,6 +140,12 @@ public class Player extends Entity{
 				speed += 2;
 				gp.obj[i] = null;
 				break;
+			case "Chest":
+				gp.ui.gameEnd = true;
+				gp.stopMusic();
+				gp.playEffect(4);
+				break;
+				
 			}
 		}
 		
