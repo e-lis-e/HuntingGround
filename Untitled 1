@@ -6,4 +6,6 @@ the entity class stores variables that will be used in player, monster and NPC c
 
 things need to be public when you want to access from other packages.
 
-bufferedimage describes an image with an accessible buffer of image data*/
+bufferedimage describes an image with an accessible buffer of image data
+
+try not to instantiate object in game loop */

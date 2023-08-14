@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener{
 	// the P in each one of those means "Pressed", but i tried to make things easier for me
 	public boolean upP,downP, leftP, rightP;
+	boolean checkDT = false;
 
 	@Override
 	public void keyTyped(KeyEvent e) {	
@@ -28,6 +29,17 @@ public class KeyHandler implements KeyListener{
 		if(code == KeyEvent.VK_D) {
 			rightP = true;
 		}
+		
+		//debug
+		if(code == KeyEvent.VK_T) {
+			if(checkDT == false) {
+				checkDT = true;
+			}
+			else if(checkDT == true) {
+				checkDT = false;
+			}
+		}
+		
 	}
 
 	@Override

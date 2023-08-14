@@ -16,6 +16,7 @@ public class GamePanel extends JPanel implements Runnable{
 	// SCREEN SETTINGS
 	final int originalTileSize = 16; // 16x16 size
 	final int scale = 3;
+	//5:21
 	
 	public final int tileSize = originalTileSize * scale; // 48x48 size
 	public final int maxScreenCol = 16; //column
@@ -110,8 +111,15 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		
 		super.paintComponent(g);
-		
 		Graphics2D g2 = (Graphics2D)g;
+		
+		//debug area
+		long drawStart = 0;
+		if(kH.checkDT == true) {
+			drawStart = System.nanoTime();	
+		}
+		
+		
 		//tile
 		tileN.draw(g2);
 		//object
@@ -125,6 +133,15 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		//UI
 		ui.draw(g2);
+		
+		//debug area
+		if(kH.checkDT == true) {
+			long drawEnd = System.nanoTime();
+			long passed = drawEnd - drawStart;
+			g2.setColor(Color.white);
+			g2.drawString("Draw Time: " + passed,10,400);
+			System.out.println("Draw Time: " + passed);
+		}
 		
 		
 		g2.dispose();
