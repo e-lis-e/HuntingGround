@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 
 import main.GamePanel;
+import main.UtilityTool;
 
 public class TileManager {
 	
@@ -28,36 +29,30 @@ public class TileManager {
 	}
 	
 	public void getTileImage() {
+			
+			setup(0, "grass", false);
+			setup(1, "wall", true);
+			setup(2, "water", true);
+			setup(3, "earth", false);
+			setup(4, "tree", true);
+			setup(5, "sand", false);
+	}
+			
+		
+	public void setup(int index, String imageName, boolean collision) {
+		UtilityTool uTool = new UtilityTool();
 		
 		try {
+			tile[index] = new Tiles();
+			tile[index].image = ImageIO.read(getClass().getResourceAsStream("/tiles/"+ imageName + ".png"));
+			tile[index].image = uTool.scaleImage(tile[index].image, gp.tileSize, gp.tileSize);
+			tile[index].collision = collision;
 			
-			tile[0] = new Tiles();
-			tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass.png"));
-			
-			BufferedImage scaledImage = new BufferedImage(gp.tileSize, gp.tileSize, tile[0].image.getType());
-			Graphics2D g2 = scaledImage.createGraphics(); //6:49
-			
-			tile[1] = new Tiles();
-			tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/wall.png"));
-			tile[1].collision = true;
-			
-			tile[2] = new Tiles();
-			tile[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water.png"));
-			tile[2].collision = true;
-			
-			tile[3] = new Tiles();
-			tile[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/earth.png"));
-			
-			tile[4] = new Tiles();
-			tile[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/tree.png"));
-			tile[4].collision = true;
-			
-			tile[5] = new Tiles();
-			tile[5].image = ImageIO.read(getClass().getResourceAsStream("/tiles/sand.png"));
-			
-		}catch(IOException e) {
+		} catch (IOException e){
 			e.printStackTrace();
+			
 		}
+		
 	}
 	public void loadMap(String filePath) {
 		
@@ -109,7 +104,7 @@ public class TileManager {
 			   worldx - gp.tileSize < gp.player.worldx + gp.player.screenX &&
 			   worldy + gp.tileSize > gp.player.worldy - gp.player.screenY &&
 			   worldy - gp.tileSize < gp.player.worldy + gp.player.screenY) {
-				g2.drawImage(tile[tileNum].image, screenx, screeny, gp.tileSize, gp.tileSize, null);
+				g2.drawImage(tile[tileNum].image, screenx, screeny, null);
 			}
 			worldcol++;
 			

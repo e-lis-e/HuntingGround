@@ -26,7 +26,7 @@ public class UI {
 		
 		keyfont = new Font("Arial", Font.PLAIN, 40);
 		eifont = new Font("Arial", Font.BOLD, 80);
-		KeyObj key = new KeyObj();
+		KeyObj key = new KeyObj(gp);
 		keyImage = key.image;
 	}
 	
