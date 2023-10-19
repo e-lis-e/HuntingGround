@@ -28,7 +28,7 @@ public class ObjSetter {
 		
 		gp.obj[3] = new DoorObj(gp);
 		gp.obj[3].worldx = 10 * gp.tileSize;
-		gp.obj[3].worldy = 11 * gp.tileSize;
+		gp.obj[3].worldy = 12 * gp.tileSize;
 		
 		gp.obj[4] = new DoorObj(gp);
 		gp.obj[4].worldx = 8 * gp.tileSize;
@@ -40,7 +40,7 @@ public class ObjSetter {
 		
 		gp.obj[6] = new ChestObj(gp);
 		gp.obj[6].worldx = 10 * gp.tileSize;
-		gp.obj[6].worldy = 8 * gp.tileSize;
+		gp.obj[6].worldy = 9 * gp.tileSize;
 		
 		
 		gp.obj[7] = new BootsObj(gp);
