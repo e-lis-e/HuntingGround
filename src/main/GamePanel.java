@@ -16,7 +16,6 @@ public class GamePanel extends JPanel implements Runnable{
 	// SCREEN SETTINGS
 	final int originalTileSize = 16; // 16x16 size
 	final int scale = 3;
-	//5:21
 	
 	public final int tileSize = originalTileSize * scale; // 48x48 size
 	public final int maxScreenCol = 16; //column
@@ -33,7 +32,7 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	//SYSTEM
 	TileManager tileN = new TileManager(this);
-	KeyHandler kH = new KeyHandler();
+	KeyHandler kH = new KeyHandler(this);
 	Sound music = new Sound();
 	Sound se = new Sound();
 	
@@ -46,6 +45,11 @@ public class GamePanel extends JPanel implements Runnable{
 	public Player player = new Player(this,kH);
 	//the 10 here means 10 slots, that can be made bigger if needed
 	public TheObject obj[] = new TheObject[10];
+
+	// GAME STATE
+	public int gameState;
+	public final int playState = 1;
+	public final int pauseState = 2;
 	
 	
 	public GamePanel() {
@@ -61,6 +65,8 @@ public class GamePanel extends JPanel implements Runnable{
 		oSetter.setObject();
 		
 		playMusic(0); 
+		stopMusic();
+		gameState = playState;
 		
 	}
 	
@@ -104,7 +110,13 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	public void update() {
 		
-		player.update();
+		if (gameState == playState){
+			player.update();
+		}
+		if (gameState == pauseState){
+			//don't do anything at the moment
+		}
+		
 		
 	}
 	public void paintComponent(Graphics g) {

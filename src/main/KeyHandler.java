@@ -4,9 +4,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener{
+
+	GamePanel gp;
 	// the P in each one of those means "Pressed", but i tried to make things easier for me
 	public boolean upP,downP, leftP, rightP;
 	boolean checkDT = false;
+
+	public KeyHandler(GamePanel gp){
+		this.gp = gp;
+	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {	
@@ -28,6 +34,15 @@ public class KeyHandler implements KeyListener{
 		}
 		if(code == KeyEvent.VK_D) {
 			rightP = true;
+		}
+		if(code == KeyEvent.VK_P) {
+			if(gp.gameState == gp.playState){
+				gp.gameState = gp.pauseState;
+			}
+			else if(gp.gameState == gp.pauseState){
+				gp.gameState = gp.playState;
+
+			}
 		}
 		
 		//debug

@@ -18,7 +18,6 @@ public class Player extends Entity{
 	
 	public final int screenX;
 	public final int screenY;
-	public int hasKey = 0;
 	
 	public Player(GamePanel gp, KeyHandler kH) {
 		this.gp = gp;
@@ -124,38 +123,7 @@ public class Player extends Entity{
 	public void pickObj(int i) {
 		
 		if (i != 999) {
-			String objectName = gp.obj[i].name;
-			
-			switch(objectName) {
-			case "Key":
-				gp.playEffect(1);
-				hasKey++;
-				gp.obj[i] = null; //this nullification makes the object disappear
-				gp.ui.showMessage("You got a key!");
-				break;
-			case "Door":
-				gp.playEffect(3);
-				if(hasKey > 0) {
-					gp.obj[i] = null;
-					hasKey--;
-					gp.ui.showMessage("You opened one of the Sacred Doors!");
-				} else {
-					gp.ui.showMessage("You need a key, silly!");
-				}
-				
-				break;
-			case "Boots":
-				gp.playEffect(2);
-				speed += 2;
-				gp.obj[i] = null;
-				break;
-			case "Chest":
-				gp.ui.gameEnd = true;
-				gp.stopMusic();
-				gp.playEffect(4);
-				break;
-				
-			}
+
 		}
 		
 		
